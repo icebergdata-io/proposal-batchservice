@@ -3,7 +3,7 @@ import {
   Database, Shield, ChevronRight, BarChart, 
   FileCheck, Briefcase, Scale, Settings,
   LineChart, Users, Clock, Building,
-  X, MousePointer, Calendar, Server
+  X, MousePointer, Calendar, Server, Building2, Link
 } from 'lucide-react'
 import { useState } from 'react'
 
@@ -271,7 +271,7 @@ function App() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="fixed top-0 left-0 right-0 bg-white py-3 sm:py-4 px-4 sm:px-6 flex justify-center items-center shadow-sm z-50">
+      <div className="fixed top-0 left-0 right-0 bg-white py-3 sm:py-4 px-4 sm:px-6 flex justify-between items-center shadow-sm z-50">
         <div className="flex items-center space-x-4 sm:space-x-6">
           <Logo 
             type="iceberg" 
@@ -281,6 +281,16 @@ function App() {
           <span className="text-gray-300 text-xl sm:text-2xl">×</span>
           <Logo type="oxylabs" className="h-6 sm:h-8" />
         </div>
+        <motion.button
+          className="bg-primary text-white hover:bg-primary-dark px-4 py-2 rounded-full font-medium inline-flex items-center transition-colors duration-300 text-sm"
+          onClick={handleSchedule}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          <Calendar className="w-4 h-4 mr-2" />
+          Schedule Call
+          <ChevronRight className="ml-1 w-4 h-4" />
+        </motion.button>
       </div>
 
       <motion.div 
@@ -289,7 +299,7 @@ function App() {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
       >
-        <div className="relative h-48 sm:h-64 w-full overflow-hidden">
+        <div className="relative h-[500px] sm:h-[600px] w-full overflow-hidden">
           <div className="absolute inset-0 bg-black/40 z-10" />
           <video
             className="absolute inset-0 w-full h-full object-cover"
@@ -308,17 +318,27 @@ function App() {
               transition={{ delay: 0.2, duration: 0.6 }}
               className="max-w-4xl mx-auto text-center px-4"
             >
-              <p className="text-white/90 text-xs sm:text-sm font-medium mb-2 sm:mb-4">
+              <p className="text-white/90 text-xs sm:text-sm font-medium mb-4 sm:mb-6">
                 Enterprise Infrastructure Proposal
               </p>
-              <h1 className="text-2xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-6 leading-tight">
-                Building the Next Generation of
+              <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold mb-4 sm:mb-8 leading-tight">
+                Building the Next Generation of<br />
                 Real Estate Data Collection
               </h1>
-              <p className="text-base sm:text-xl font-light">
-                Advanced Web Scraping Architecture for
+              <p className="text-lg sm:text-2xl font-light mb-8 sm:mb-10">
+                Advanced Web Scraping Architecture for<br />
                 BatchService's Data Ecosystem
               </p>
+              <motion.button
+                className="bg-white text-primary hover:bg-primary hover:text-white px-8 py-4 rounded-full font-medium inline-flex items-center transition-colors duration-300 shadow-lg hover:shadow-xl"
+                onClick={handleSchedule}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Calendar className="w-5 h-5 mr-3" />
+                Schedule a Discovery Call
+                <ChevronRight className="ml-3 w-5 h-5" />
+              </motion.button>
             </motion.div>
           </div>
         </div>
@@ -438,6 +458,81 @@ function App() {
                     Improved property search accuracy
                   </li>
                 </ul>
+              </div>
+
+              <div className="bg-green-50 border border-oxylabs/20 rounded-xl p-4 sm:p-6 mb-4">
+                <div className="flex items-center mb-4">
+                  <Building2 className="w-6 h-6 text-oxylabs mr-3" />
+                  <h3 className="text-lg font-semibold text-oxylabs">Rent Estimate Data Collection</h3>
+                </div>
+                <p className="text-gray-700 mb-4">
+                  Through our advanced web scraping and data collection process, you can calculate comprehensive rent estimates from leading real estate platforms, including:
+                </p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <h4 className="font-medium text-oxylabs mb-2">Data Points Available After 3 months of Collection</h4>
+                    <ul className="space-y-2">
+                      <li className="flex items-start">
+                        <ChevronRight className="w-4 h-4 text-oxylabs mr-2 mt-1" />
+                        <span className="text-gray-600">Historical rent trends from multiple sources</span>
+                      </li>
+                      <li className="flex items-start">
+                        <ChevronRight className="w-4 h-4 text-oxylabs mr-2 mt-1" />
+                        <span className="text-gray-600">Comparable property rents in target areas</span>
+                      </li>
+                      <li className="flex items-start">
+                        <ChevronRight className="w-4 h-4 text-oxylabs mr-2 mt-1" />
+                        <span className="text-gray-600">Market rate analysis with competitive insights</span>
+                      </li>
+                      <li className="flex items-start">
+                        <ChevronRight className="w-4 h-4 text-oxylabs mr-2 mt-1" />
+                        <span className="text-gray-600">Seasonal pricing factors and trends</span>
+                      </li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 className="font-medium text-oxylabs mb-2">Coverage</h4>
+                    <ul className="space-y-2">
+                      <li className="flex items-start">
+                        <ChevronRight className="w-4 h-4 text-oxylabs mr-2 mt-1" />
+                        <span className="text-gray-600">Zillow Rent Zestimates</span>
+                      </li>
+                      <li className="flex items-start">
+                        <ChevronRight className="w-4 h-4 text-oxylabs mr-2 mt-1" />
+                        <span className="text-gray-600">Realtor.com estimates</span>
+                      </li>
+                      <li className="flex items-start">
+                        <ChevronRight className="w-4 h-4 text-oxylabs mr-2 mt-1" />
+                        <span className="text-gray-600">Apartments.com listings</span>
+                      </li>
+                      <li className="flex items-start">
+                        <ChevronRight className="w-4 h-4 text-oxylabs mr-2 mt-1" />
+                        <span className="text-gray-600">Local MLS data</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-gray-50 border border-gray-200 rounded-xl p-4 sm:p-6">
+                <div className="flex items-center mb-4">
+                  <Link className="w-6 h-6 text-gray-600 mr-3" />
+                  <h3 className="text-lg font-semibold text-gray-800">Scraping Data Sources</h3>
+                </div>
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
+                  <div className="flex items-center justify-center grayscale hover:grayscale-0 transition-all">
+                    <img src="/logos/zillologo.jpeg" alt="Zillow" className="h-8 object-contain" />
+                  </div>
+                  <div className="flex items-center justify-center grayscale hover:grayscale-0 transition-all">
+                    <img src="/logos/realtorlogo.png" alt="Realtor.com" className="h-8 object-contain" />
+                  </div>
+                  <div className="flex items-center justify-center grayscale hover:grayscale-0 transition-all">
+                    <img src="/logos/apartmentslogo.png" alt="Apartments.com" className="h-6 object-contain" />
+                  </div>
+                  <div className="flex items-center justify-center grayscale hover:grayscale-0 transition-all">
+                    <img src="/logos/mls_logo.png" alt="MLS" className="h-8 object-contain" />
+                  </div>
+                </div>
               </div>
             </div>
             <div className="flex-shrink-0 w-full sm:w-64 flex flex-col items-center space-y-6">
