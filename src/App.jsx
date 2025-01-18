@@ -5,7 +5,8 @@ import {
   LineChart, Users, Clock, Building,
   X, MousePointer, Calendar, Server, Building2, Link
 } from 'lucide-react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { useAnalytics } from './hooks/useAnalytics'
 
 const Logo = ({ type, className = "", white = false, onClick }) => {
   const logos = {
@@ -41,10 +42,53 @@ function App() {
   const [selectedBenefit, setSelectedBenefit] = useState(null)
   const [showCompanyInfo, setShowCompanyInfo] = useState(false)
   const [showOxylabsInfo, setShowOxylabsInfo] = useState(false)
+  const { trackButtonClick, trackPopupOpen, trackSectionView } = useAnalytics()
 
   const handleSchedule = () => {
+    trackButtonClick('schedule_call')
     window.open('https://calendly.com/icedata/dm', '_blank')
   }
+
+  const handleBenefitClick = (benefit) => {
+    trackPopupOpen(`benefit_${benefit}`)
+    setSelectedBenefit(benefit)
+  }
+
+  const handleCompanyInfoClick = () => {
+    trackPopupOpen('company_info')
+    setShowCompanyInfo(true)
+  }
+
+  const handleOxylabsInfoClick = () => {
+    trackPopupOpen('oxylabs_info')
+    setShowOxylabsInfo(true)
+  }
+
+  // Track initial page view
+  useEffect(() => {
+    trackSectionView('page_view')
+  }, [])
+
+  // Track section views on scroll
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            trackSectionView(entry.target.dataset.section)
+          }
+        })
+      },
+      { threshold: 0.5 }
+    )
+
+    const sections = document.querySelectorAll('[data-section]')
+    sections.forEach(section => observer.observe(section))
+
+    return () => {
+      sections.forEach(section => observer.unobserve(section))
+    }
+  }, [])
 
   const fadeIn = {
     initial: { opacity: 0, y: 20 },
@@ -353,7 +397,7 @@ function App() {
       </motion.div>
 
       <main className="max-w-6xl mx-auto px-4 py-8 sm:py-12">
-        <motion.section {...fadeIn} className="mb-12 sm:mb-16">
+        <motion.section {...fadeIn} className="mb-12 sm:mb-16" data-section="partnership_overview">
           <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-4 sm:mb-6">Partnership Overview</h2>
           <div className="flex flex-col sm:flex-row items-center sm:items-start space-y-6 sm:space-y-0 sm:space-x-8">
             <div className="flex-1 w-full">
@@ -559,7 +603,7 @@ function App() {
           </div>
         </motion.section>
 
-        <motion.section {...fadeIn} className="mb-12 sm:mb-16 relative">
+        <motion.section {...fadeIn} className="mb-12 sm:mb-16 relative" data-section="pipeline_benefits">
           <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-6 sm:mb-8">Scraping Pipeline Benefits</h2>
           
           <div className="absolute top-0 right-0 flex items-center text-primary">
@@ -615,7 +659,7 @@ function App() {
           </div>
         </motion.section>
 
-        <motion.section {...fadeIn} className="mb-12 sm:mb-16">
+        <motion.section {...fadeIn} className="mb-12 sm:mb-16" data-section="development_approach">
           <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-6 sm:mb-8">Development Approach</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8">
             <motion.div 
@@ -646,7 +690,7 @@ function App() {
           </div>
         </motion.section>
 
-        <motion.section {...fadeIn} className="mb-12 sm:mb-16">
+        <motion.section {...fadeIn} className="mb-12 sm:mb-16" data-section="key_deliverables">
           <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-6 sm:mb-8">Key Deliverables</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="space-y-4">
@@ -743,7 +787,7 @@ function App() {
           </div>
         </motion.section>
 
-        <motion.section {...fadeIn} className="mb-12 sm:mb-16">
+        <motion.section {...fadeIn} className="mb-12 sm:mb-16" data-section="development_timeline">
           <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-6 sm:mb-8">Development Timeline</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-8">
             <motion.div 
@@ -784,7 +828,7 @@ function App() {
           </div>
         </motion.section>
 
-        <motion.section {...fadeIn} className="mb-12 sm:mb-16">
+        <motion.section {...fadeIn} className="mb-12 sm:mb-16" data-section="infrastructure_security">
           <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-6 sm:mb-8">Infrastructure & Security</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8">
             <motion.div 
