@@ -5,13 +5,29 @@
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
-    <!-- Google Analytics -->
+    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-DM9R9RF92T"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-DM9R9RF92T');
+
+      // Configure your GA4 property with enhanced measurement
+      gtag('config', 'G-DM9R9RF92T', {
+        send_page_view: true,
+        cookie_flags: 'SameSite=None;Secure',
+        page_path: window.location.pathname,
+        link_attribution: true,
+        allow_google_signals: true,
+        allow_ad_personalization_signals: false
+      });
+
+      // Track user engagement time
+      gtag('event', 'timing_complete', {
+        name: 'load',
+        value: performance.now(),
+        event_category: 'JS Dependencies'
+      });
     </script>
 
     <!-- Primary Meta Tags -->
