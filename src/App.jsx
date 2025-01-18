@@ -294,13 +294,13 @@ function App() {
       </div>
 
       <motion.div 
-        className="bg-primary text-white relative overflow-hidden pt-16 sm:pt-20"
+        className="bg-gradient-to-br from-primary via-primary/95 to-primary/90 text-white relative overflow-hidden pt-16 sm:pt-20"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
       >
         <div className="relative h-[500px] sm:h-[600px] w-full overflow-hidden">
-          <div className="absolute inset-0 bg-black/40 z-10" />
+          <div className="absolute inset-0 bg-black/50 z-10" />
           <video
             className="absolute inset-0 w-full h-full object-cover"
             autoPlay
@@ -321,16 +321,24 @@ function App() {
               <p className="text-white/90 text-xs sm:text-sm font-medium mb-4 sm:mb-6">
                 Enterprise Infrastructure Proposal
               </p>
+              <a 
+                href="https://www.icebergdata.co" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-white/90 text-sm sm:text-base font-medium mb-2 hover:text-white transition-colors inline-block"
+              >
+                www.icebergdata.co
+              </a>
               <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold mb-4 sm:mb-8 leading-tight">
                 Building the Next Generation of<br />
                 Real Estate Data Collection
               </h1>
               <p className="text-lg sm:text-2xl font-light mb-8 sm:mb-10">
                 Advanced Web Scraping Architecture for<br />
-                BatchService's Data Ecosystem
+                <span className="font-bold text-white">BatchService's</span> Data Ecosystem
               </p>
               <motion.button
-                className="bg-white text-primary hover:bg-primary hover:text-white px-8 py-4 rounded-full font-medium inline-flex items-center transition-colors duration-300 shadow-lg hover:shadow-xl"
+                className="bg-white text-primary hover:bg-primary-dark hover:text-white px-8 py-4 rounded-full font-medium inline-flex items-center transition-colors duration-300 shadow-lg hover:shadow-xl"
                 onClick={handleSchedule}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
