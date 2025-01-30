@@ -10,13 +10,13 @@ import { useAnalytics } from './hooks/useAnalytics'
 
 const Logo = ({ type, className = "", white = false, onClick }) => {
   const logos = {
-    iceberg: "/logo_iceberg_RECTANGULAR_trans_720.png",
-    oxylabs: "/oxylabs-logo.png"
+    iceberg: "/logo_iceberg_HORIZONTAL_trans_720.png",
+    xertica: "/xertica.jpg"
   }
 
   const whiteModeLogos = {
-    iceberg: "/logo_iceberg_RECTANGULAR_trans_720.png",
-    oxylabs: "/oxylabs-logo.png"
+    iceberg: "/logo_iceberg_HORIZONTAL_trans_720.png",
+    xertica: "/xertica.jpg"
   }
 
   return (
@@ -31,7 +31,7 @@ const Logo = ({ type, className = "", white = false, onClick }) => {
       />
       {type === 'iceberg' && (
         <div className="absolute -top-2 -right-2 bg-primary text-white text-xs px-2 py-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          Click for info
+          Ver más
         </div>
       )}
     </div>
@@ -41,7 +41,6 @@ const Logo = ({ type, className = "", white = false, onClick }) => {
 function App() {
   const [selectedBenefit, setSelectedBenefit] = useState(null)
   const [showCompanyInfo, setShowCompanyInfo] = useState(false)
-  const [showOxylabsInfo, setShowOxylabsInfo] = useState(false)
   const { trackButtonClick, trackPopupOpen, trackSectionView } = useAnalytics()
 
   const handleSchedule = () => {
@@ -57,11 +56,6 @@ function App() {
   const handleCompanyInfoClick = () => {
     trackPopupOpen('company_info')
     setShowCompanyInfo(true)
-  }
-
-  const handleOxylabsInfoClick = () => {
-    trackPopupOpen('oxylabs_info')
-    setShowOxylabsInfo(true)
   }
 
   // Track initial page view
@@ -98,39 +92,38 @@ function App() {
 
   const benefitsDetails = {
     efficiency: {
-      title: "Property Data Collection Pipeline",
+      title: "Pipeline de Datos de Productos",
       points: [
-        "Automated property listing extraction across multiple sources",
-        "Real-time MLS data synchronization capabilities",
-        "Custom scrapers for county records and tax assessor data",
-        "Intelligent data deduplication and merging",
-        "Automated data quality validation and enrichment",
-        "Property image and document processing pipeline",
-        "Historical property data tracking and versioning"
+        "Extracción automatizada de listados de productos de múltiples fuentes",
+        "Scrapers personalizados para cada farmacia",
+        "Deduplicación y fusión inteligente de datos",
+        "Validación automática de calidad de datos",
+        "Pipeline de procesamiento de imágenes y documentos",
+        "Seguimiento y versionado de datos históricos"
       ]
     },
     compliance: {
-      title: "Contact & Owner Information Pipeline",
+      title: "Pipeline de Información de Precios",
       points: [
-        "Multi-source contact information aggregation",
-        "Advanced phone number verification system",
-        "Email validation and verification workflow",
-        "Social media profile enrichment capabilities",
-        "Business entity and LLC lookup automation",
-        "Contact information freshness monitoring",
-        "Compliance-focused data retention policies"
+        "Agregación de información de precios de múltiples fuentes",
+        "Sistema avanzado de verificación de disponibilidad",
+        "Validación y verificación de precios",
+        "Enriquecimiento con datos de promociones",
+        "Automatización de búsqueda de ofertas",
+        "Monitoreo de frescura de información",
+        "Políticas de retención de datos conformes"
       ]
     },
     cost: {
-      title: "Skip Tracing Enhancement Pipeline",
+      title: "Visualización y Análisis de Datos",
       points: [
-        "Multi-threaded contact discovery system",
-        "Advanced pattern matching for owner identification",
-        "Automated public records aggregation",
-        "Cross-reference validation with multiple sources",
-        "Machine learning-based contact scoring",
-        "Automated chain of title analysis",
-        "Real-time contact verification system"
+        "Dashboards interactivos desarrollados por Xertica",
+        "Visualizaciones personalizadas para análisis de tendencias",
+        "Reportes automatizados de KPIs clave",
+        "Análisis comparativo de precios y competencia",
+        "Alertas y notificaciones configurables",
+        "Exportación de datos en múltiples formatos",
+        "Integración con herramientas de BI existentes"
       ]
     }
   }
@@ -193,119 +186,47 @@ function App() {
         
         <div className="flex items-center mb-6">
           <Logo type="iceberg" className="h-16 mr-4" />
-          <h3 className="text-2xl font-bold text-primary">About Iceberg Data</h3>
+          <h3 className="text-2xl font-bold text-primary">Sobre Iceberg Data</h3>
         </div>
 
         <div className="space-y-6">
           <div>
-            <h4 className="text-lg font-semibold text-primary mb-2">Web Scraping Expertise</h4>
+            <h4 className="text-lg font-semibold text-primary mb-2">Experiencia en Web Scraping</h4>
             <p className="text-gray-700">
-              Iceberg Data specializes in building enterprise-grade web scraping infrastructure 
-              and data collection pipelines. Our expertise lies in creating scalable, reliable, 
-              and compliant data acquisition solutions.
+              Iceberg Data se especializa en construir infraestructura de web scraping de nivel empresarial 
+              y pipelines de recolección de datos. Nuestra experiencia radica en crear soluciones 
+              escalables, confiables y conformes para la adquisición de datos.
             </p>
           </div>
 
           <div>
-            <h4 className="text-lg font-semibold text-primary mb-2">Core Capabilities</h4>
+            <h4 className="text-lg font-semibold text-primary mb-2">Capacidades Principales</h4>
             <ul className="space-y-2">
               <li className="flex items-start">
                 <ChevronRight className="w-5 h-5 text-primary mr-2 flex-shrink-0 mt-0.5" />
-                <span className="text-gray-700">Custom scraping pipeline development for specific industry needs</span>
+                <span className="text-gray-700">Desarrollo de pipelines de scraping personalizados para necesidades específicas de la industria</span>
               </li>
               <li className="flex items-start">
                 <ChevronRight className="w-5 h-5 text-primary mr-2 flex-shrink-0 mt-0.5" />
-                <span className="text-gray-700">Advanced proxy infrastructure management and optimization</span>
+                <span className="text-gray-700">Gestión y optimización avanzada de infraestructura de proxies</span>
               </li>
               <li className="flex items-start">
                 <ChevronRight className="w-5 h-5 text-primary mr-2 flex-shrink-0 mt-0.5" />
-                <span className="text-gray-700">Data quality assurance and validation systems</span>
+                <span className="text-gray-700">Sistemas de aseguramiento y validación de calidad de datos</span>
               </li>
               <li className="flex items-start">
                 <ChevronRight className="w-5 h-5 text-primary mr-2 flex-shrink-0 mt-0.5" />
-                <span className="text-gray-700">Compliance and ethical data collection practices</span>
+                <span className="text-gray-700">Prácticas éticas y conformes de recolección de datos</span>
               </li>
             </ul>
           </div>
 
           <div>
-            <h4 className="text-lg font-semibold text-primary mb-2">Partnership Approach</h4>
+            <h4 className="text-lg font-semibold text-primary mb-2">Enfoque de Colaboración</h4>
             <p className="text-gray-700">
-              We work closely with enterprise clients to understand their specific data needs 
-              and develop custom solutions that leverage the best-in-class infrastructure 
-              provided by our strategic partnership with Oxylabs.
-            </p>
-          </div>
-        </div>
-      </motion.div>
-    </motion.div>
-  )
-
-  const OxylabsPopup = ({ onClose }) => (
-    <motion.div 
-      className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      onClick={onClose}
-    >
-      <motion.div 
-        className="bg-white rounded-xl p-4 sm:p-8 max-w-2xl w-full relative max-h-[90vh] overflow-y-auto"
-        initial={{ scale: 0.9, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        exit={{ scale: 0.9, opacity: 0 }}
-        onClick={e => e.stopPropagation()}
-      >
-        <button 
-          onClick={onClose}
-          className="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
-        >
-          <X className="w-6 h-6" />
-        </button>
-        
-        <div className="flex items-center mb-6">
-          <Logo type="oxylabs" className="h-8 mr-4" />
-          <h3 className="text-2xl font-bold text-oxylabs">About Oxylabs</h3>
-        </div>
-
-        <div className="space-y-6">
-          <div>
-            <h4 className="text-lg font-semibold text-oxylabs mb-2">Enterprise Proxy Infrastructure</h4>
-            <p className="text-gray-700">
-              Oxylabs is a leading provider of premium proxies and web scraping solutions. 
-              Their enterprise-grade infrastructure powers data-driven businesses worldwide 
-              with reliable, scalable, and ethically-sourced proxy services.
-            </p>
-          </div>
-
-          <div>
-            <h4 className="text-lg font-semibold text-oxylabs mb-2">Key Features</h4>
-            <ul className="space-y-2">
-              <li className="flex items-start">
-                <ChevronRight className="w-5 h-5 text-oxylabs mr-2 flex-shrink-0 mt-0.5" />
-                <span className="text-gray-700">100M+ residential proxies with global coverage</span>
-              </li>
-              <li className="flex items-start">
-                <ChevronRight className="w-5 h-5 text-oxylabs mr-2 flex-shrink-0 mt-0.5" />
-                <span className="text-gray-700">99.9% uptime with enterprise-grade reliability</span>
-              </li>
-              <li className="flex items-start">
-                <ChevronRight className="w-5 h-5 text-oxylabs mr-2 flex-shrink-0 mt-0.5" />
-                <span className="text-gray-700">Advanced targeting and rotation capabilities</span>
-              </li>
-              <li className="flex items-start">
-                <ChevronRight className="w-5 h-5 text-oxylabs mr-2 flex-shrink-0 mt-0.5" />
-                <span className="text-gray-700">24/7 dedicated enterprise support</span>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="text-lg font-semibold text-oxylabs mb-2">Enterprise Solutions</h4>
-            <p className="text-gray-700">
-              Oxylabs provides tailored solutions for large-scale data gathering operations, 
-              ensuring high success rates, ethical data collection, and enterprise-grade security 
-              protocols for businesses of all sizes.
+              Trabajamos estrechamente con clientes empresariales para entender sus necesidades 
+              específicas de datos y desarrollar soluciones personalizadas que aprovechen 
+              nuestra infraestructura de última generación.
             </p>
           </div>
         </div>
@@ -323,7 +244,7 @@ function App() {
             onClick={() => setShowCompanyInfo(true)}
           />
           <span className="text-gray-300 text-xl sm:text-2xl">×</span>
-          <Logo type="oxylabs" className="h-6 sm:h-8" />
+          <Logo type="xertica" className="h-6 sm:h-8"/> 
         </div>
         <motion.button
           className="bg-primary text-white hover:bg-primary-dark px-4 py-2 rounded-full font-medium inline-flex items-center transition-colors duration-300 text-sm"
@@ -332,7 +253,7 @@ function App() {
           whileTap={{ scale: 0.95 }}
         >
           <Calendar className="w-4 h-4 mr-2" />
-          Schedule Call
+          Agendar una llamada
           <ChevronRight className="ml-1 w-4 h-4" />
         </motion.button>
       </div>
@@ -363,7 +284,7 @@ function App() {
               className="max-w-4xl mx-auto text-center px-4"
             >
               <p className="text-white/90 text-xs sm:text-sm font-medium mb-4 sm:mb-6">
-                Enterprise Infrastructure Proposal
+                Propuesta de Infraestructura para Recopilación de Datos
               </p>
               <a 
                 href="https://www.icebergdata.co" 
@@ -374,12 +295,12 @@ function App() {
                 www.icebergdata.co
               </a>
               <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold mb-4 sm:mb-8 leading-tight">
-                Building the Next Generation of<br />
-                Real Estate Data Collection
+                Inteligencia de mercado<br />
+                para el sector farmacéutico
               </h1>
               <p className="text-lg sm:text-2xl font-light mb-8 sm:mb-10">
-                Advanced Web Scraping Architecture for<br />
-                <span className="font-bold text-white">BatchService's</span> Data Ecosystem
+                Monitoreo constante de precios,<br />
+                inventarios y tendencias de 160+ farmacias
               </p>
               <motion.button
                 className="bg-white text-primary hover:bg-primary-dark hover:text-white px-8 py-4 rounded-full font-medium inline-flex items-center transition-colors duration-300 shadow-lg hover:shadow-xl"
@@ -388,7 +309,7 @@ function App() {
                 whileTap={{ scale: 0.95 }}
               >
                 <Calendar className="w-5 h-5 mr-3" />
-                Schedule a Discovery Call
+                Agendar una llamada
                 <ChevronRight className="ml-3 w-5 h-5" />
               </motion.button>
             </motion.div>
@@ -398,86 +319,75 @@ function App() {
 
       <main className="max-w-6xl mx-auto px-4 py-8 sm:py-12">
         <motion.section {...fadeIn} className="mb-12 sm:mb-16" data-section="partnership_overview">
-          <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-4 sm:mb-6">Partnership Overview</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-4 sm:mb-6">Descripción general de la alianza</h2>
           <div className="flex flex-col sm:flex-row items-center sm:items-start space-y-6 sm:space-y-0 sm:space-x-8">
             <div className="flex-1 w-full">
               <p className="text-base sm:text-lg text-gray-700 mb-6">
-                As BatchService continues to lead the real estate data industry with platforms like BatchLeads and BatchData, 
-                reliable web scraping infrastructure becomes crucial for maintaining your extensive property and contact database. 
-                By leveraging{' '}
-                <button 
-                  onClick={() => setShowOxylabsInfo(true)}
-                  className="text-oxylabs hover:text-oxylabs-dark font-medium underline decoration-dotted underline-offset-4 transition-colors"
-                >
-                  Oxylabs'
-                </button>{' '}
-                enterprise-grade proxy network, we can enhance your data collection capabilities across multiple sources - 
-                from property listings and tax assessor records to contact information and ownership details - ensuring 
-                your 10,000+ real estate professionals always have access to the most accurate and up-to-date data.{' '}
+                A medida que Farmatic busca expandir su presencia en el mercado farmacéutico de LATAM, 
+                una infraestructura automatizada de datos se vuelve crucial. Nuestra solución no solo 
+                recopila datos de múltiples fuentes, sino que los procesa y visualiza automáticamente - 
+                permitiéndole tomar decisiones informadas basadas en dashboards actualizados periódicamente 
+                con precios, inventarios, promociones y tendencias del mercado.{' '}
                 <button 
                   onClick={() => setShowCompanyInfo(true)}
                   className="ml-1 text-primary hover:text-primary-dark font-medium underline decoration-dotted underline-offset-4 transition-colors"
                 >
-                  About Iceberg Data
+                  Sobre Iceberg Data
                 </button>
               </p>
 
               <div className="bg-blue-50 border border-primary/20 rounded-xl p-4 sm:p-6 mb-4">
                 <div className="flex items-center mb-4">
                   <Shield className="w-6 h-6 text-primary mr-3" />
-                  <h3 className="text-lg font-semibold text-primary">Data Scraping Capabilities</h3>
+                  <h3 className="text-lg font-semibold text-primary">Capacidades de Web Scraping</h3>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   <div>
-                    <h4 className="font-medium text-primary mb-2">Anti-Detection System</h4>
+                    <h4 className="font-medium text-primary mb-2">Sistema Anti-Detección</h4>
                     <ul className="space-y-2">
                       <li className="flex items-start">
                         <ChevronRight className="w-4 h-4 text-primary mr-2 mt-1" />
-                        <span className="text-gray-600">Advanced browser fingerprinting</span>
+                        <span className="text-gray-600">Fingerprinting avanzado</span>
                       </li>
                       <li className="flex items-start">
                         <ChevronRight className="w-4 h-4 text-primary mr-2 mt-1" />
-                        <span className="text-gray-600">Proxy rotation strategies</span>
+                        <span className="text-gray-600">Rotación de proxies</span>
                       </li>
                       <li className="flex items-start">
                         <ChevronRight className="w-4 h-4 text-primary mr-2 mt-1" />
-                        <span className="text-gray-600">Request pattern randomization</span>
+                        <span className="text-gray-600">Patrones de solicitud aleatorios</span>
                       </li>
                     </ul>
                   </div>
 
                   <div>
-                    <h4 className="font-medium text-primary mb-2">Data Quality</h4>
+                    <h4 className="font-medium text-primary mb-2">Calidad de Datos</h4>
                     <ul className="space-y-2">
                       <li className="flex items-start">
                         <ChevronRight className="w-4 h-4 text-primary mr-2 mt-1" />
-                        <span className="text-gray-600">Real-time data validation</span>
+                        <span className="text-gray-600">Validación de datos en tiempo real</span>
                       </li>
                       <li className="flex items-start">
                         <ChevronRight className="w-4 h-4 text-primary mr-2 mt-1" />
-                        <span className="text-gray-600">Automated error recovery</span>
+                        <span className="text-gray-600">Detección automática de errores</span>
                       </li>
                       <li className="flex items-start">
                         <ChevronRight className="w-4 h-4 text-primary mr-2 mt-1" />
-                        <span className="text-gray-600">Structured data formatting</span>
+                        <span className="text-gray-600">Formateo estructurado de datos</span>
                       </li>
                     </ul>
                   </div>
 
                   <div>
-                    <h4 className="font-medium text-primary mb-2">Performance</h4>
+                    <h4 className="font-medium text-primary mb-2">Rendimiento</h4>
                     <ul className="space-y-2">
                       <li className="flex items-start">
                         <ChevronRight className="w-4 h-4 text-primary mr-2 mt-1" />
-                        <span className="text-gray-600">Concurrent scraping</span>
+                        <span className="text-gray-600">Scraping concurrente</span>
                       </li>
                       <li className="flex items-start">
                         <ChevronRight className="w-4 h-4 text-primary mr-2 mt-1" />
-                        <span className="text-gray-600">Smart rate limiting</span>
-                      </li>
-                      <li className="flex items-start">
-                        <ChevronRight className="w-4 h-4 text-primary mr-2 mt-1" />
-                        <span className="text-gray-600">Resource optimization</span>
+                        <span className="text-gray-600">Optimización de recursos</span>
                       </li>
                     </ul>
                   </div>
@@ -486,80 +396,96 @@ function App() {
 
               <div className="bg-blue-50 border border-primary/20 rounded-xl p-4 sm:p-6 mb-4">
                 <div className="flex items-center mb-4">
-                  <Server className="w-6 h-6 text-oxylabs mr-3" />
-                  <h3 className="text-lg font-semibold text-oxylabs">Infrastructure Benefits</h3>
+                  <Server className="w-6 h-6 text-primary mr-3" />
+                  <h3 className="text-lg font-semibold text-primary">Beneficios para el Negocio</h3>
                 </div>
-                <p className="text-gray-700">
-                  Enhance BatchData's core capabilities with:
+                <p className="text-gray-700 mb-4">
+                  Transforme sus datos en ventajas competitivas:
                 </p>
-                <ul className="mt-3 space-y-2">
-                  <li className="flex items-center text-gray-700">
-                    <ChevronRight className="w-4 h-4 text-oxylabs mr-2" />
-                    Reliable data collection for property intelligence
-                  </li>
-                  <li className="flex items-center text-gray-700">
-                    <ChevronRight className="w-4 h-4 text-oxylabs mr-2" />
-                    Scalable infrastructure for contact enrichment
-                  </li>
-                  <li className="flex items-center text-gray-700">
-                    <ChevronRight className="w-4 h-4 text-oxylabs mr-2" />
-                    Enhanced skip tracing capabilities
-                  </li>
-                  <li className="flex items-center text-gray-700">
-                    <ChevronRight className="w-4 h-4 text-oxylabs mr-2" />
-                    Improved property search accuracy
-                  </li>
-                </ul>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <ul className="space-y-3">
+                    <li className="flex items-center text-gray-700">
+                      <ChevronRight className="w-4 h-4 text-primary mr-2 flex-shrink-0" />
+                      <span><b>Análisis de competencia:</b> Compare precios y promociones para ajustar estrategias y mantener competitividad</span>
+                    </li>
+                    <li className="flex items-center text-gray-700">
+                      <ChevronRight className="w-4 h-4 text-primary mr-2 flex-shrink-0" />
+                      <span><b>Gestión de inventarios:</b> Monitoree el stock para optimizar niveles y evitar pérdidas</span>
+                    </li>
+                    <li className="flex items-center text-gray-700">
+                      <ChevronRight className="w-4 h-4 text-primary mr-2 flex-shrink-0" />
+                      <span><b>Identificación de tendencias:</b> Detecte patrones en la demanda para anticipar necesidades</span>
+                    </li>
+                    <li className="flex items-center text-gray-700">
+                      <ChevronRight className="w-4 h-4 text-primary mr-2 flex-shrink-0" />
+                      <span><b>Optimización de promociones:</b> Evalúe y mejore la efectividad de sus ofertas con datos reales</span>
+                    </li>
+                  </ul>
+                  <ul className="space-y-3">
+                    <li className="flex items-center text-gray-700">
+                      <ChevronRight className="w-4 h-4 text-primary mr-2 flex-shrink-0" />
+                      <span><b>Mejora de experiencia:</b> Ofrezca recomendaciones personalizadas basadas en datos</span>
+                    </li>
+                    <li className="flex items-center text-gray-700">
+                      <ChevronRight className="w-4 h-4 text-primary mr-2 flex-shrink-0" />
+                      <span><b>Decisiones informadas:</b> Equipe a sus equipos con datos actualizados para estrategias efectivas</span>
+                    </li>
+                    <li className="flex items-center text-gray-700">
+                      <ChevronRight className="w-4 h-4 text-primary mr-2 flex-shrink-0" />
+                      <span><b>Automatización de reportes:</b> Genere visualizaciones y KPIs automáticos para seguimiento</span>
+                    </li>
+                  </ul>
+                </div>
               </div>
 
               <div className="bg-green-50 border border-oxylabs/20 rounded-xl p-4 sm:p-6 mb-4">
                 <div className="flex items-center mb-4">
                   <Building2 className="w-6 h-6 text-oxylabs mr-3" />
-                  <h3 className="text-lg font-semibold text-oxylabs">Rent Estimate Data Collection</h3>
+                  <h3 className="text-lg font-semibold text-oxylabs">Recopilación de Datos de Farmacias</h3>
                 </div>
                 <p className="text-gray-700 mb-4">
-                  Through our advanced web scraping and data collection process, you can calculate comprehensive rent estimates from leading real estate platforms, including:
+                  A través de nuestro proceso avanzado de web scraping y recopilación de datos, puede obtener información completa de productos farmacéuticos de las principales cadenas, incluyendo:
                 </p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <h4 className="font-medium text-oxylabs mb-2">Data Points Available After 3 months of Collection</h4>
+                    <h4 className="font-medium text-oxylabs mb-2">Datos Disponibles</h4>
                     <ul className="space-y-2">
                       <li className="flex items-start">
                         <ChevronRight className="w-4 h-4 text-oxylabs mr-2 mt-1" />
-                        <span className="text-gray-600">Historical rent trends from multiple sources</span>
+                        <span className="text-gray-600">Precios históricos de múltiples fuentes</span>
                       </li>
                       <li className="flex items-start">
                         <ChevronRight className="w-4 h-4 text-oxylabs mr-2 mt-1" />
-                        <span className="text-gray-600">Comparable property rents in target areas</span>
+                        <span className="text-gray-600">Disponibilidad de inventario</span>
                       </li>
                       <li className="flex items-start">
                         <ChevronRight className="w-4 h-4 text-oxylabs mr-2 mt-1" />
-                        <span className="text-gray-600">Market rate analysis with competitive insights</span>
+                        <span className="text-gray-600">Análisis de precios competitivos</span>
                       </li>
                       <li className="flex items-start">
                         <ChevronRight className="w-4 h-4 text-oxylabs mr-2 mt-1" />
-                        <span className="text-gray-600">Seasonal pricing factors and trends</span>
+                        <span className="text-gray-600">Tendencias de promociones y descuentos</span>
                       </li>
                     </ul>
                   </div>
                   <div>
-                    <h4 className="font-medium text-oxylabs mb-2">Coverage</h4>
+                    <h4 className="font-medium text-oxylabs mb-2">Cobertura</h4>
                     <ul className="space-y-2">
                       <li className="flex items-start">
                         <ChevronRight className="w-4 h-4 text-oxylabs mr-2 mt-1" />
-                        <span className="text-gray-600">Zillow Rent Zestimates</span>
+                        <span className="text-gray-600">Farmatodo</span>
                       </li>
                       <li className="flex items-start">
                         <ChevronRight className="w-4 h-4 text-oxylabs mr-2 mt-1" />
-                        <span className="text-gray-600">Realtor.com estimates</span>
+                        <span className="text-gray-600">Cruz Verde</span>
                       </li>
                       <li className="flex items-start">
                         <ChevronRight className="w-4 h-4 text-oxylabs mr-2 mt-1" />
-                        <span className="text-gray-600">Apartments.com listings</span>
+                        <span className="text-gray-600">La Rebaja</span>
                       </li>
                       <li className="flex items-start">
                         <ChevronRight className="w-4 h-4 text-oxylabs mr-2 mt-1" />
-                        <span className="text-gray-600">Local MLS data</span>
+                        <span className="text-gray-600">Otras cadenas principales</span>
                       </li>
                     </ul>
                   </div>
@@ -569,46 +495,40 @@ function App() {
               <div className="bg-gray-50 border border-gray-200 rounded-xl p-4 sm:p-6">
                 <div className="flex items-center mb-4">
                   <Link className="w-6 h-6 text-gray-600 mr-3" />
-                  <h3 className="text-lg font-semibold text-gray-800">Scraping Data Sources</h3>
+                  <h3 className="text-lg font-semibold text-gray-800">Algunas fuentes de datos para el scraping</h3>
                 </div>
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-3xl mx-auto">
                   <div className="flex items-center justify-center grayscale hover:grayscale-0 transition-all">
-                    <img src="/logos/zillologo.jpeg" alt="Zillow" className="h-8 object-contain" />
+                    <img src="/logos/farmatodo1.png" alt="Farmatodo" className="h-8 object-contain" />
                   </div>
                   <div className="flex items-center justify-center grayscale hover:grayscale-0 transition-all">
-                    <img src="/logos/realtorlogo.png" alt="Realtor.com" className="h-8 object-contain" />
+                    <img src="/logos/larebaja1.jpg" alt="La Rebaja" className="h-11 object-contain" />
                   </div>
                   <div className="flex items-center justify-center grayscale hover:grayscale-0 transition-all">
-                    <img src="/logos/apartmentslogo.png" alt="Apartments.com" className="h-6 object-contain" />
+                    <img src="/logos/cruzverde1.png" alt="Cruz Verde" className="h-8 object-contain" />
                   </div>
-                  <div className="flex items-center justify-center grayscale hover:grayscale-0 transition-all">
-                    <img src="/logos/mls_logo.png" alt="MLS" className="h-8 object-contain" />
-                  </div>
+                  {/* <div className="flex items-center justify-center grayscale hover:grayscale-0 transition-all">
+                    <img src="/logos/other_pharmacies.png" alt="Otras Farmacias" className="h-8 object-contain" />
+                  </div> */}
                 </div>
               </div>
             </div>
             <div className="flex-shrink-0 w-full sm:w-64 flex flex-col items-center space-y-6">
               <Logo 
                 type="iceberg" 
-                className="h-16 sm:h-20 w-auto" 
+                className="h-20 sm:h-40 w-auto" 
                 onClick={() => setShowCompanyInfo(true)}
               />
-              <div className="w-full flex items-center justify-center">
-                <div className="w-12 sm:w-16 h-px bg-gray-300"></div>
-                <span className="mx-3 sm:mx-4 text-gray-400">+</span>
-                <div className="w-12 sm:w-16 h-px bg-gray-300"></div>
-              </div>
-              <Logo type="oxylabs" className="h-10 sm:h-12 w-auto" />
             </div>
           </div>
         </motion.section>
 
         <motion.section {...fadeIn} className="mb-12 sm:mb-16 relative" data-section="pipeline_benefits">
-          <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-6 sm:mb-8">Scraping Pipeline Benefits</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-6 sm:mb-8">Beneficios del Pipeline de Scraping</h2>
           
           <div className="absolute top-0 right-0 flex items-center text-primary">
             <MousePointer className="w-4 h-4 mr-2" />
-            <span className="text-xs sm:text-sm">Click cards for details</span>
+            <span className="text-xs sm:text-sm">Click para ver detalles</span>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-8">
@@ -620,10 +540,10 @@ function App() {
             >
               <div className="absolute inset-0 bg-primary opacity-0 group-hover:opacity-5 rounded-xl transition-opacity" />
               <Database className="w-8 h-8 text-primary mb-4" />
-              <h3 className="text-xl font-semibold mb-3">Property Data Pipeline</h3>
+              <h3 className="text-xl font-semibold mb-3">Pipeline de Datos de Productos</h3>
               <p className="text-gray-600">
-                Comprehensive property data collection system leveraging Oxylabs' infrastructure 
-                to enhance BatchData's property intelligence capabilities.
+                Sistema integral de recopilación de datos de productos que mejora las 
+                capacidades de inteligencia de mercado de Farmatic.
               </p>
             </motion.div>
 
@@ -635,10 +555,10 @@ function App() {
             >
               <div className="absolute inset-0 bg-primary opacity-0 group-hover:opacity-5 rounded-xl transition-opacity" />
               <Users className="w-8 h-8 text-primary mb-4" />
-              <h3 className="text-xl font-semibold mb-3">Contact Information Pipeline</h3>
+              <h3 className="text-xl font-semibold mb-3">Pipeline de Información de Precios</h3>
               <p className="text-gray-600">
-                Advanced contact discovery and verification system to power 
-                BatchData's contact enrichment services.
+                Sistema avanzado de descubrimiento y verificación de precios para 
+                potenciar los servicios de análisis competitivo de Farmatic.
               </p>
             </motion.div>
 
@@ -649,18 +569,18 @@ function App() {
               onClick={() => setSelectedBenefit('cost')}
             >
               <div className="absolute inset-0 bg-primary opacity-0 group-hover:opacity-5 rounded-xl transition-opacity" />
-              <FileCheck className="w-8 h-8 text-primary mb-4" />
-              <h3 className="text-xl font-semibold mb-3">Skip Tracing Pipeline</h3>
+              <BarChart className="w-8 h-8 text-primary mb-4" />
+              <h3 className="text-xl font-semibold mb-3">Visualización y Análisis de Datos</h3>
               <p className="text-gray-600">
-                Enhanced skip tracing capabilities with multi-source validation 
-                to improve BatchData's right-party contact rates.
+                Dashboards interactivos y reportes automatizados desarrollados por Xertica 
+                para transformar datos crudos en insights accionables.
               </p>
             </motion.div>
           </div>
         </motion.section>
 
         <motion.section {...fadeIn} className="mb-12 sm:mb-16" data-section="development_approach">
-          <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-6 sm:mb-8">Development Approach</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-6 sm:mb-8">Enfoque de Desarrollo</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8">
             <motion.div 
               className="feature-card"
@@ -668,10 +588,10 @@ function App() {
               transition={{ type: "spring", stiffness: 300 }}
             >
               <FileCheck className="w-8 h-8 text-primary mb-4" />
-              <h3 className="text-xl font-semibold mb-3">Agile Methodology</h3>
+              <h3 className="text-xl font-semibold mb-3">Metodología Ágil</h3>
               <p className="text-gray-600">
-                Two-week sprint cycles with regular demos and feedback sessions, 
-                ensuring the development aligns with your business objectives.
+                Ciclos de sprint de dos semanas con demostraciones regulares y sesiones de 
+                retroalimentación, asegurando que el desarrollo se alinee con sus objetivos comerciales.
               </p>
             </motion.div>
 
@@ -681,106 +601,106 @@ function App() {
               transition={{ type: "spring", stiffness: 300 }}
             >
               <Users className="w-8 h-8 text-primary mb-4" />
-              <h3 className="text-xl font-semibold mb-3">Collaborative Development</h3>
+              <h3 className="text-xl font-semibold mb-3">Desarrollo Colaborativo</h3>
               <p className="text-gray-600">
-                Close collaboration with your team through daily standups and 
-                regular code reviews to maintain high quality standards.
+                Colaboración estrecha con su equipo a través de reuniones diarias y 
+                revisiones regulares de código para mantener altos estándares de calidad.
               </p>
             </motion.div>
           </div>
         </motion.section>
 
         <motion.section {...fadeIn} className="mb-12 sm:mb-16" data-section="key_deliverables">
-          <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-6 sm:mb-8">Key Deliverables</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-6 sm:mb-8">Entregables Clave</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="space-y-4">
-              <h3 className="text-lg font-semibold text-primary">Ongoing Services</h3>
+              <h3 className="text-lg font-semibold text-primary">Servicios Continuos</h3>
               <ul className="space-y-3">
                 <li className="flex items-start">
                   <ChevronRight className="w-5 h-5 text-primary mr-2 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">Weekly infrastructure maintenance and performance optimization</span>
+                  <span className="text-gray-700">Mantenimiento semanal de infraestructura y optimización de rendimiento</span>
                 </li>
                 <li className="flex items-start">
                   <ChevronRight className="w-5 h-5 text-primary mr-2 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">Dedicated Slack channel for real-time communication and support</span>
+                  <span className="text-gray-700">Canal dedicado de Slack para comunicación y soporte en tiempo real</span>
                 </li>
                 <li className="flex items-start">
                   <ChevronRight className="w-5 h-5 text-primary mr-2 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">Ad-hoc analysis and custom data extraction requests</span>
+                  <span className="text-gray-700">Análisis ad-hoc y solicitudes personalizadas de extracción de datos</span>
                 </li>
                 <li className="flex items-start">
                   <ChevronRight className="w-5 h-5 text-primary mr-2 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">Monthly performance reports and optimization recommendations</span>
+                  <span className="text-gray-700">Informes de rendimiento y recomendaciones de optimización</span>
                 </li>
               </ul>
             </div>
 
             <div className="space-y-4">
-              <h3 className="text-lg font-semibold text-primary">Data Collection Capabilities</h3>
+              <h3 className="text-lg font-semibold text-primary">Capacidades de Recolección de Datos</h3>
               <ul className="space-y-3">
                 <li className="flex items-start">
                   <ChevronRight className="w-5 h-5 text-primary mr-2 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">Property-level data extraction (details, images, history, valuation)</span>
+                  <span className="text-gray-700">Extracción de datos a nivel de producto (detalles, imágenes, historial, valoración)</span>
                 </li>
                 <li className="flex items-start">
                   <ChevronRight className="w-5 h-5 text-primary mr-2 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">Owner information gathering (contact details, portfolio analysis)</span>
+                  <span className="text-gray-700">Recopilación de información de precios (precios actuales, históricos y promociones)</span>
                 </li>
                 <li className="flex items-start">
                   <ChevronRight className="w-5 h-5 text-primary mr-2 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">Broker and agent data collection (listings, performance metrics)</span>
+                  <span className="text-gray-700">Recolección de datos de inventario (disponibilidad, stock, ubicaciones)</span>
+                </li>
+                {/* <li className="flex items-start">
+                  <ChevronRight className="w-5 h-5 text-primary mr-2 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700">Extracción de análisis de mercado (tendencias, comparativas, demografía)</span>
+                </li> */}
+              </ul>
+            </div>
+
+            <div className="space-y-4">
+              <h3 className="text-lg font-semibold text-primary">Cobertura de Sitios Web</h3>
+              <ul className="space-y-3">
+                <li className="flex items-start">
+                  <ChevronRight className="w-5 h-5 text-primary mr-2 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700">Exploración continua de sitios web e identificación de nuevas fuentes</span>
                 </li>
                 <li className="flex items-start">
                   <ChevronRight className="w-5 h-5 text-primary mr-2 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">Market analytics extraction (trends, comparables, demographics)</span>
+                  <span className="text-gray-700">Detección automatizada de cambios en la estructura de los sitios</span>
+                </li>
+                <li className="flex items-start">
+                  <ChevronRight className="w-5 h-5 text-primary mr-2 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700">Soluciones de scraping personalizadas para fuentes específicas</span>
+                </li>
+                <li className="flex items-start">
+                  <ChevronRight className="w-5 h-5 text-primary mr-2 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700">Actualizaciones regulares de patrones de extracción y selectores</span>
                 </li>
               </ul>
             </div>
 
             <div className="space-y-4">
-              <h3 className="text-lg font-semibold text-primary">Website Coverage</h3>
+              <h3 className="text-lg font-semibold text-primary">Infraestructura Técnica</h3>
               <ul className="space-y-3">
+                {/* <li className="flex items-start">
+                  <ChevronRight className="w-5 h-5 text-primary mr-2 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700">Sincronización de datos en tiempo real con APIs</span>
+                </li> */}
                 <li className="flex items-start">
                   <ChevronRight className="w-5 h-5 text-primary mr-2 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">Continuous website exploration and new source identification</span>
+                  <span className="text-gray-700">Infraestructura de scraping escalable con failover automático</span>
                 </li>
                 <li className="flex items-start">
                   <ChevronRight className="w-5 h-5 text-primary mr-2 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">Automated detection of website structure changes</span>
+                  <span className="text-gray-700">Sistemas de monitoreo y alertas automatizados</span>
                 </li>
                 <li className="flex items-start">
                   <ChevronRight className="w-5 h-5 text-primary mr-2 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">Custom scraping solutions for specific data sources</span>
+                  <span className="text-gray-700">Pipelines de aseguramiento y validación de calidad de datos</span>
                 </li>
                 <li className="flex items-start">
                   <ChevronRight className="w-5 h-5 text-primary mr-2 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">Regular updates to extraction patterns and selectors</span>
-                </li>
-              </ul>
-            </div>
-
-            <div className="space-y-4">
-              <h3 className="text-lg font-semibold text-primary">Technical Infrastructure</h3>
-              <ul className="space-y-3">
-                <li className="flex items-start">
-                  <ChevronRight className="w-5 h-5 text-primary mr-2 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">Real-time data synchronization with BatchLeads and BatchData APIs</span>
-                </li>
-                <li className="flex items-start">
-                  <ChevronRight className="w-5 h-5 text-primary mr-2 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">Scalable scraping infrastructure with automatic failover</span>
-                </li>
-                <li className="flex items-start">
-                  <ChevronRight className="w-5 h-5 text-primary mr-2 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">Real-time monitoring and alert systems</span>
-                </li>
-                <li className="flex items-start">
-                  <ChevronRight className="w-5 h-5 text-primary mr-2 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">Data quality assurance and validation pipelines</span>
-                </li>
-                <li className="flex items-start">
-                  <ChevronRight className="w-5 h-5 text-primary mr-2 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">Comprehensive logging and error tracking systems</span>
+                  <span className="text-gray-700">Sistemas integrales de registro y seguimiento de errores</span>
                 </li>
               </ul>
             </div>
@@ -788,18 +708,29 @@ function App() {
         </motion.section>
 
         <motion.section {...fadeIn} className="mb-12 sm:mb-16" data-section="development_timeline">
-          <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-6 sm:mb-8">Development Timeline</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-8">
+          <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-6 sm:mb-8">Plan de Implementación</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8">
             <motion.div 
               className="feature-card"
               whileHover={{ scale: 1.02 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
               <Clock className="w-8 h-8 text-primary mb-4" />
-              <h3 className="text-xl font-semibold mb-3">Phase 1: Foundation</h3>
-              <p className="text-gray-600">
-                4 weeks - Architecture setup, core features implementation, and basic UI components.
-              </p>
+              <h3 className="text-xl font-semibold mb-3">Fase de Configuración (Meses 1-16)</h3>
+              <ul className="space-y-3">
+                <li className="flex items-start">
+                  <ChevronRight className="w-5 h-5 text-primary mr-2 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700"><b>Implementación Mensual:</b> Configuración de 10 nuevos dominios</span>
+                </li>
+                <li className="flex items-start">
+                  <ChevronRight className="w-5 h-5 text-primary mr-2 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700"><b>Alcance Total:</b> 160 dominios configurados al finalizar el mes 16</span>
+                </li>
+                <li className="flex items-start">
+                  <ChevronRight className="w-5 h-5 text-primary mr-2 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700"><b>Actividades:</b> Configuración de scrapers, pruebas y validación de datos</span>
+                </li>
+              </ul>
             </motion.div>
 
             <motion.div 
@@ -808,28 +739,115 @@ function App() {
               transition={{ type: "spring", stiffness: 300 }}
             >
               <Database className="w-8 h-8 text-primary mb-4" />
-              <h3 className="text-xl font-semibold mb-3">Phase 2: BatchData Integration</h3>
-              <p className="text-gray-600">
-                8 weeks - Core integration with BatchData API, custom scraping pipeline setup, and data enrichment implementation.
-              </p>
+              <h3 className="text-xl font-semibold mb-3">Fase de Mantenimiento</h3>
+              <ul className="space-y-3">
+                <li className="flex items-start">
+                  <ChevronRight className="w-5 h-5 text-primary mr-2 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700"><b>Ejecución:</b> Scraping semanal de datos para dominios activos</span>
+                </li>
+                <li className="flex items-start">
+                  <ChevronRight className="w-5 h-5 text-primary mr-2 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700"><b>Soporte:</b> Mantenimiento continuo y actualizaciones de scrapers</span>
+                </li>
+                <li className="flex items-start">
+                  <ChevronRight className="w-5 h-5 text-primary mr-2 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700"><b>Monitoreo:</b> Supervisión constante de calidad y precisión de datos</span>
+                </li>
+              </ul>
             </motion.div>
+          </div>
 
-            <motion.div 
-              className="feature-card"
-              whileHover={{ scale: 1.02 }}
-              transition={{ type: "spring", stiffness: 300 }}
-            >
-              <BarChart className="w-8 h-8 text-primary mb-4" />
-              <h3 className="text-xl font-semibold mb-3">Phase 3: Refinement</h3>
-              <p className="text-gray-600">
-                4 weeks - Performance optimization, security hardening, and deployment.
-              </p>
-            </motion.div>
+          <div className="mt-8 bg-blue-50 border border-primary/20 rounded-xl p-6">
+            <h3 className="text-lg font-semibold text-primary mb-4">Estructura de Implementación</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <h4 className="font-medium text-primary mb-2">Durante Meses 1-16</h4>
+                <ul className="space-y-2">
+                  <li className="flex items-start">
+                    <ChevronRight className="w-4 h-4 text-primary mr-2 mt-1" />
+                    <span className="text-gray-600">Configuración mensual de 10 nuevos dominios</span>
+                  </li>
+                  <li className="flex items-start">
+                    <ChevronRight className="w-4 h-4 text-primary mr-2 mt-1" />
+                    <span className="text-gray-600">Inicio inmediato de scraping semanal para dominios configurados</span>
+                  </li>
+                  <li className="flex items-start">
+                    <ChevronRight className="w-4 h-4 text-primary mr-2 mt-1" />
+                    <span className="text-gray-600">Facturación trimestral de mantenimiento según dominios activos</span>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h4 className="font-medium text-primary mb-2">Después del Mes 16</h4>
+                <ul className="space-y-2">
+                  <li className="flex items-start">
+                    <ChevronRight className="w-4 h-4 text-primary mr-2 mt-1" />
+                    <span className="text-gray-600">160 dominios en operación completa</span>
+                  </li>
+                  <li className="flex items-start">
+                    <ChevronRight className="w-4 h-4 text-primary mr-2 mt-1" />
+                    <span className="text-gray-600">Mantenimiento y soporte continuo de todos los scrapers</span>
+                  </li>
+                  <li className="flex items-start">
+                    <ChevronRight className="w-4 h-4 text-primary mr-2 mt-1" />
+                    <span className="text-gray-600">Facturación trimestral regular de mantenimiento</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-8">
+            <div className="bg-gradient-to-r from-primary/10 via-primary/5 to-primary/10 border border-primary/20 rounded-xl p-6">
+              <div className="flex items-center mb-4">
+                <Settings className="w-6 h-6 text-primary mr-3" />
+                <h3 className="text-lg font-semibold text-primary">Plan Alternativo Disponible</h3>
+              </div>
+              
+              <div className="bg-white rounded-lg p-5">
+                <h4 className="text-xl font-semibold text-primary mb-3">Plan de 10 Colectores</h4>
+                <p className="text-gray-700 mb-4">
+                  Solución optimizada para empresas que requieren un alcance más específico. Este plan incluye:
+                </p>
+                <ul className="space-y-3">
+                  <li className="flex items-start">
+                    <ChevronRight className="w-5 h-5 text-primary mr-2 flex-shrink-0 mt-0.5" />
+                    <span className="text-gray-700">
+                      <b>Configuración Inicial:</b> Implementación y configuración de 10 colectores específicos
+                    </span>
+                  </li>
+                  <li className="flex items-start">
+                    <ChevronRight className="w-5 h-5 text-primary mr-2 flex-shrink-0 mt-0.5" />
+                    <span className="text-gray-700">
+                      <b>Duración:</b> Mantenimiento y soporte garantizado por un año completo
+                    </span>
+                  </li>
+                  <li className="flex items-start">
+                    <ChevronRight className="w-5 h-5 text-primary mr-2 flex-shrink-0 mt-0.5" />
+                    <span className="text-gray-700">
+                      <b>Beneficios:</b> Acceso a todas las funcionalidades de recolección y visualización de datos
+                    </span>
+                  </li>
+                </ul>
+                <div className="mt-6 flex justify-end">
+                  <motion.button
+                    className="bg-primary text-white px-6 py-2 rounded-full font-medium inline-flex items-center hover:bg-primary-dark transition-colors duration-300"
+                    onClick={handleSchedule}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <Calendar className="w-4 h-4 mr-2" />
+                    Consultar detalles
+                    <ChevronRight className="ml-2 w-4 h-4" />
+                  </motion.button>
+                </div>
+              </div>
+            </div>
           </div>
         </motion.section>
 
         <motion.section {...fadeIn} className="mb-12 sm:mb-16" data-section="infrastructure_security">
-          <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-6 sm:mb-8">Infrastructure & Security</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-6 sm:mb-8">Infraestructura y Seguridad</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8">
             <motion.div 
               className="feature-card"
@@ -837,12 +855,12 @@ function App() {
               transition={{ type: "spring", stiffness: 300 }}
             >
               <div className="flex items-center mb-4">
-                <Logo type="oxylabs" className="h-6 mr-3" />
-                <h3 className="text-xl font-semibold">Enterprise Infrastructure</h3>
+                <Logo type="iceberg" className="h-6 mr-3" />
+                <h3 className="text-xl font-semibold">Infraestructura Empresarial</h3>
               </div>
               <p className="text-gray-600">
-                Leveraging Oxylabs' world-class infrastructure for unmatched reliability, 
-                speed, and scalability in data collection and processing operations.
+                Infraestructura de clase mundial para una confiabilidad, velocidad y 
+                escalabilidad incomparables en operaciones de recolección y procesamiento de datos.
               </p>
             </motion.div>
 
@@ -853,11 +871,11 @@ function App() {
             >
               <div className="flex items-center mb-4">
                 <Shield className="w-8 h-8 text-primary mr-3" />
-                <h3 className="text-xl font-semibold">Security & Compliance</h3>
+                <h3 className="text-xl font-semibold">Seguridad y Conformidad</h3>
               </div>
               <p className="text-gray-600">
-                Industry-leading security measures and compliance standards, 
-                backed by Oxylabs' proven track record in enterprise data protection.
+                Medidas de seguridad y estándares de conformidad líderes en la industria, 
+                respaldados por nuestra trayectoria comprobada en protección de datos empresariales.
               </p>
             </motion.div>
           </div>
@@ -867,17 +885,16 @@ function App() {
           {...fadeIn}
           className="text-center py-12 bg-gray-100 rounded-xl"
         >
-          <div className="flex justify-center items-center mb-8 space-x-12">
+          <div className="flex justify-center items-center mb-8">
             <Logo 
               type="iceberg" 
               className="h-16" 
               onClick={() => setShowCompanyInfo(true)}
             />
-            <Logo type="oxylabs" className="h-8" />
           </div>
-          <h3 className="text-2xl font-bold text-primary mb-4">Ready to Enhance BatchService's Data Ecosystem?</h3>
+          <h3 className="text-2xl font-bold text-primary mb-4">¿Listo para mejorar el ecosistema de datos de Farmatic?</h3>
           <p className="text-lg text-gray-700 mb-8">
-            Let's discuss how this partnership can elevate your web application to new heights.
+            Hablemos sobre cómo podemos llevar su análisis de mercado al siguiente nivel.
           </p>
           <div className="flex flex-col items-center space-y-4">
             <motion.button
@@ -887,11 +904,11 @@ function App() {
               whileTap={{ scale: 0.95 }}
             >
               <Calendar className="w-5 h-5 mr-2" />
-              Schedule a Discovery Call
+              Agendar una llamada
               <ChevronRight className="ml-2 w-5 h-5" />
             </motion.button>
             <p className="text-sm text-gray-500">
-              A joint initiative by Iceberg Data & Oxylabs
+              Una solución de Iceberg Data
             </p>
           </div>
         </motion.section>
@@ -908,24 +925,19 @@ function App() {
               onClose={() => setShowCompanyInfo(false)} 
             />
           )}
-          {showOxylabsInfo && (
-            <OxylabsPopup 
-              onClose={() => setShowOxylabsInfo(false)} 
-            />
-          )}
         </AnimatePresence>
       </main>
 
       <footer className="text-center py-6 sm:py-8 text-gray-600">
-        <div className="flex justify-center items-center space-x-6 sm:space-x-8 mb-3 sm:mb-4">
+      <div className="flex justify-center items-center space-x-6 sm:space-x-8 mb-3 sm:mb-4">
           <Logo 
             type="iceberg" 
             className="h-10 sm:h-12" 
             onClick={() => setShowCompanyInfo(true)}
           />
-          <Logo type="oxylabs" className="h-5 sm:h-6" />
+        <Logo type="xertica" className="h-5 sm:h-6" />
         </div>
-        <p className="text-sm sm:text-base">© {new Date().getFullYear()} Iceberg Data & Oxylabs Partnership</p>
+        <p className="text-sm sm:text-base">© {new Date().getFullYear()} Iceberg Data & Xertica</p>
       </footer>
     </div>
   )
